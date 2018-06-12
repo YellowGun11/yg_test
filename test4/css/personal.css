@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    width: 100%;
+    height: 768px;
+    min-width: 1280px;
+    background-color: #f1f1f1;
+    /*color: #80c269;*/
+    background-size: cover;
+    /*background-position: top center;*/
+    overflow: auto;
+}
+
+/*µ¼º½À¸*/
+.header {
+    height: 40px;
+    width: 100%;
+    /*border: 1px solid gray;*/
+    background-color: #fff;
+}
+div.logo {
+    float: left;
+    margin: 5px 60px;
+}

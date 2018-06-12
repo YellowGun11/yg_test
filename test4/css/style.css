@@ -1,0 +1,1215 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*自定义字体*/
+@font-face {
+    font-family: "myfont";
+    src:url("../font/fangzhengxiyuanjianti.ttf");
+}
+@font-face {
+    font-family: "myfont1";
+    src:url("../font/fangzhengkatongjianti.ttf");
+}
+
+body{
+    width: 100%;
+    height: 768px;
+    min-width: 1280px;
+    background: url("../img/bg.png") no-repeat;
+    /*color: #80c269;*/
+    background-size: cover;
+    /*background-position: top center;*/
+    overflow: auto;
+}
+
+/*导航栏*/
+.header {
+    height: 40px;
+    width: 100%;
+    /*border: 1px solid gray;*/
+    background-color: #fff;
+}
+div.logo {
+    float: left;
+    margin: 5px 60px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    float: right;
+    position: relative;/*子元素absol*/
+}
+ul img{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 3px;
+}
+ul li {
+    width: 22px;
+    height: 36px;
+    text-align: center;
+    margin-right: 35px;
+    float: left;
+}
+
+.user-photo{
+    width: 35px;
+    height: 35px;
+    /*text-align: center;*/
+    margin-top: 0;
+    margin-right: 30px;
+    margin-left: 15px;
+   /* font-size:0;*/
+    float: left;
+    border-radius: 50%;
+  /*  border: 1px solid #11ff00;*/
+
+}
+.user-photo>img{
+    display:block;
+    margin-top: -2px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ul li a {
+    display: block;
+    width: 60px;
+    height: 36px;
+    cursor: pointer;
+    text-decoration: none;
+    /*line-height: 36px;*/
+}
+
+ul li a img{
+    display: none;
+    width: 22px;
+    height: 22px;
+    margin: 4.8px auto;
+}
+
+li:nth-child(1)>a{
+    background: url("../img/rank1.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+
+li:nth-child(1)>a:hover{
+    background: url("../img/rank2.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+li:nth-child(2)>a{
+    background: url("../img/task1.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+
+li:nth-child(2)>a:hover{
+    background: url("../img/task2.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+li:nth-child(3)>a{
+    background: url("../img/news1.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+
+li:nth-child(3)>a:hover{
+    background: url("../img/news2.png") no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+}
+
+ul a:hover{
+    color: red;
+}
+.move{
+    display: none;
+    height: 2px;
+    width: 40px;
+    border-top: 2px solid #80c269;/*只需要将上边显示出来*/
+    position: absolute;
+    left: 11px;
+    top: 38px;
+    transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+    -webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+    -moz-transition: left .2s ease-in-out 0s;/*firefox*/
+    -o-transition: left .2s ease-in-out 0s;/*opera*/
+}
+
+
+li:nth-child(1):hover~ .move{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+    display: block;
+    left: 11px;
+}
+li:nth-child(2):hover~ .move{
+    display: block;
+    left: 68px;                 /*11+35+22*/
+}
+li:nth-child(3):hover~ .move{
+    display: block;
+    left: 125px;                /*68+35+22*/
+}
+/*导航栏结束*/
+
+/*人物头像信息框*/
+.user-picture-setting{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    margin-top: 10px;
+    margin-left: -140px;
+    border-radius: 5px;
+    z-index: 3;
+    background-color: white;
+    text-align: center;
+    /*min-width: 160px;*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.user-picture-setting>img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 5px;
+    display: block;
+    cursor: pointer;
+}
+
+.user-data{
+    margin-top: 5px;
+    float: left;
+    margin-left: 10px;
+    width: 120px;
+    height: 50px;
+    /*border: 1px solid red;*/
+}
+.user-name{
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 16px;
+}
+.user-score,.score-number{
+    display: block;
+    float: left;
+    font-size: 13px;
+    margin-left: 5px;
+    text-align: left;
+    color:rgba(93, 93, 93, 0.85);
+}
+
+.user-picture-setting>a{
+    clear: both;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-picture-setting a:hover{
+    background-color: #f1f1f1
+}
+/*人物头像信息结束*/
+
+
+
+
+/*标语*/
+.lead{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 240px auto;
+}
+/*标语结束*/
+
+
+/*任务板块*/
+.tasking{
+    display:none;
+    position: relative;
+    float: right;
+    margin-right: 70px;
+    text-align: center;
+    width: 190px;
+    height: 240px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+.tasking-title{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(128, 128, 128, 0.74);
+    /*border: 1px solid red;*/
+}
+
+.line{
+    width: 80%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.4);
+    margin: 0 auto;
+}
+
+.tasking-content1{
+    margin-top: 10px;
+    width: 100%;
+    height: 25px;
+    /*border: 1px solid red;*/
+}
+.text1{
+    float: left;
+    width: 60%;
+    height: 100%;
+    line-height: 25px;
+    text-align: left;
+    margin-left: 5px;
+    color: rgba(93, 93, 93, 0.85);
+    font-family: myfont1;
+    font-size: 13px;
+    overflow: hidden;
+    /*border: 1px solid chartreuse;*/
+}
+.count1,.mark,.count2{
+    float: left;
+    width: 6.5%;
+    text-align: left;
+    line-height: 25px;
+    color: rgba(128, 128, 128, 0.74);
+    margin-left: 2px;
+    font-family: myfont;
+    font-size: 12px;
+    /*font-family: sans-serif;*/
+    /*border: 1px solid red;*/
+}
+
+.mark{
+    width: 3%;
+    text-align: center;
+}
+.join-button{
+    float: right;
+    width: 13%;
+    height: 22px;
+    margin-right: 5px;
+    cursor: pointer;
+    /*border: 1px solid red;*/
+}
+
+.tasking-release{
+    clear: both;
+    margin: 10px auto;
+    width: 80px;
+    height: 30px;
+    background-color:#80c269 ;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tasking-more{
+    display: block;
+    width: 50px;
+    height: auto;
+    margin-top: 13px;
+    margin-left: 130px;
+    font-size: 10px;
+    color:rgba(128, 128, 128, 0.74);
+    cursor: pointer;
+}
+/*任务板块结束*/
+
+/*排行榜板块*/
+.ranking1{
+    display:none;
+    z-index: 2;
+    position: relative;
+    float: right;
+    margin-right: 125px;
+    text-align: center;
+    width: 190px;
+    height: 240px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+.ranking1-title,.ranking2-title{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(128, 128, 128, 0.74);
+}
+.ranking1-title>img,.ranking2-title>img{
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.ranking1-box1{
+    margin-top: 1px;
+    width: 100%;
+    height: 200px;
+}
+.ranking1-box2{
+    width: 190px;
+    height: 200px;
+    overflow: hidden;
+}
+.ranking1-box3{
+    width: 215px;
+    height: 200px;
+    overflow: auto;
+}
+
+.ranking1-content1{
+    margin-top: 5px;
+    width: 190px;
+    height: 25px;
+}
+.number{
+    display: block;
+    float: left;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.ranking1-name,.ranking2-name{
+    float: left;
+    margin-left: 5px;
+    width: 70px;
+    height: 25px;
+    overflow: hidden;
+    line-height: 25px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(128, 128, 128, 0.74);
+}
+.top-name{
+    color: black;
+    font-size: 15px;
+}
+
+.ranking1-score,.ranking2-score{
+    float: left;
+    margin-left: 5px;
+    width: 40px;
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    font-size: 11px;
+    color: rgba(128, 128, 128, 0.74);
+}
+.top-score{
+    font-size: 14px;
+    color: red;
+}
+.ranking1-cup{
+    display: block;
+    float: right;
+    margin-right: 4px;
+    width: 28px;
+    height: 25px;
+}
+.ranking1-place{
+    display: block;
+    float: right;
+    margin-right: 4px;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    font-family: myfont1;
+    line-height: 25px;
+    text-align: center;
+    color: rgba(128, 128, 128, 0.74);
+}
+.top-two{
+    color: orange;
+}
+.top-three{
+    color: blue;
+}
+
+.ranking2{
+    display: none;
+    position: relative;
+    float: right;
+    margin-right: 0;
+    text-align: center;
+    width: 190px;
+    height: 240px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: auto;
+}
+/*排行榜板块结束*/
+
+/*更多任务板块*/
+.up2{
+    display: none;
+    z-index: 3;
+    width: 818px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 1);
+    position: absolute;
+    margin: 5px 200px;
+    opacity: 1;
+    border-radius:5px;
+}
+.up2>img{
+    display: block;
+    width: 19px;
+    height: 7px;
+    margin: 6px auto;
+    cursor: pointer;
+}
+
+.up2-bg{
+    width: 787px;
+    height: 275px;
+    margin: 4px auto;
+    overflow: hidden;
+}
+
+.task-box{
+    width: 805px;
+    height: 275px;
+    margin: 4px auto;
+    overflow:auto;
+    /*border: 1px solid rgba(255,255,255,0.2);*/
+    /*border-left-style: hidden;*/
+    border-radius:5px;
+}
+
+.task-box>div{
+    width: 775px;
+    height: 40px;
+    margin: 3px auto;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius:5px;
+}
+
+.task-box>div:hover{
+    border:2px solid rgba(0, 0, 0, 0.4);
+}
+
+.task-user-picture{
+    float: left;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #56cfff;
+    border-radius: 50%;
+    cursor:pointer;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.task-user-infor{
+    float: left;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-left: 3px;
+    width: 680px;
+    height: 30px;
+    /* border: 1px solid #FF0000;*/
+    cursor:pointer;
+}
+
+.texts1{
+    float: left;
+    width: 90%;
+    height: 100%;
+    line-height: 30px;
+    text-align: left;
+    margin-left: 5px;
+    color: rgba(93, 93, 93, 0.85);
+    font-family: myfont1;
+    font-size: 17px;
+    overflow: hidden;
+    /*border: 1px solid chartreuse;*/
+}
+.counts1,.marks,.counts2{
+    float: left;
+    width: 2%;
+    text-align: left;
+    line-height: 30px;
+    color: rgba(128, 128, 128, 0.74);
+    margin-left: 2px;
+    font-family: myfont;
+    font-size: 12px;
+    /*font-family: sans-serif;*/
+    /*border: 1px solid red;*/
+}
+
+.marks{
+    width: 1.5%;
+    text-align: center;
+}
+
+.join{
+    float: right;
+    width: 35px;
+    height: 35px;
+    margin-top: 3px;
+    margin-right: 5px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+
+
+
+/*详细任务框*/
+.task-specific{
+    position: absolute;
+    z-index: 3;
+    width: 580px;
+    height: 20px;
+    margin-top: 180px;
+    margin-left: 400px;
+    background-color: rgba(245, 245, 245, 1);
+    /*border: 1px solid rgba(0, 255, 28, 0.89);*/
+    display: none;
+    border-radius: 3px;
+}
+
+.task-specific-close{
+    width: 20px;
+    height: 20px;
+    float: right;
+    text-align: center;
+    line-height: 20px;
+    color: black;
+    font-family: myfont1;
+    font-size: 25px;
+    margin-right: 1px;
+    cursor:pointer;
+}
+
+.task-specific-close:hover{
+    background-color: rgba(233, 233, 233, 0.88);
+}
+
+/*任务内容框*/
+.task-specific-box{
+    position: relative;
+    width: 750px;
+    height: 170px;
+    clear: both;
+    margin-top: 5px;
+    margin-left: 30px;
+    border: 1px solid rgba(93, 93, 93, 0.85);
+    border-radius: 3px;
+}
+
+.task-specific-chat{
+    position: relative;
+    width: 750px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 30px;
+    /*border: 1px solid rgba(93, 93, 93, 0.85);*/
+    border-radius: 3px;
+}
+
+.task-user-join{
+    float: left;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(93, 93, 93, 0.85);
+    border-radius: 50%;
+    cursor:pointer;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.joiner-chat{
+    float: right;
+    width: 180px;
+    height: 35px;
+}
+
+/*加入按钮*/
+.joiner-join-button{
+    float: left;
+    margin-top: 10px;
+    width: 80px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #80c269;
+    cursor:pointer;
+}
+
+/*聊天室按钮*/
+.joiner-chat-button{
+    float: right;
+    margin-top: 10px;
+    width: 80px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #80c269;
+    margin-right: 3px;
+    cursor:pointer;
+}
+
+.task-joiner-shape{
+    position: relative;
+    width: 750px;
+    height: 210px;
+    clear: both;
+    margin-top: 5px;
+    margin-left: 30px;
+    border: 1px solid rgba(93, 93, 93, 0.85);
+    border-radius: 3px;
+}
+
+.joiner-chat-box{
+    position: absolute;
+    z-index: 10;
+    width: 750px;
+    height: 170px;
+    margin-top: -445px;
+    margin-left: 30px;
+    background-color: white;
+    border: 1px solid rgba(93, 93, 93, 0.85);
+    border-radius: 3px;
+    display: none;
+}
+
+.part1{
+    width: 100%;
+    height: 140px;
+    /*border-bottom:1px solid #984dd7;*/
+}
+
+.part1-close{
+    width: 20px;
+    height: 20px;
+    float: right;
+    text-align: center;
+    line-height: 20px;
+    color: green;
+    font-family: myfont1;
+    font-size: 25px;
+    margin-right: 1px;
+    cursor:pointer;
+}
+
+.part1-close:hover{
+    background-color: rgba(233, 233, 233, 0.88);
+}
+
+.part2{
+    width: 100%;
+    height: 30px;
+    margin-top: 0;
+}
+.part2-input{
+    width: 600px;
+    height: 25px;
+    margin-top: 1px;
+    margin-left: 2px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    outline: none;
+    /*opacity: 0.8;*/
+}
+
+.part2-send-button{
+    float: right;
+    width: 50px;
+    height:25px;
+    margin-top: 1px;
+    margin-right: 45px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #80c269;
+    cursor:pointer;
+}
+/*更多任务板块结束*/
+
+/*任务发布板块*/
+/*任务发布框*/
+.task-issue-box{
+    position: absolute;
+    z-index: 4;
+    width: 818px;
+    height: 285px;
+    margin-top: 5px;
+    margin-left: 210px;
+    background-color: rgba(245, 245, 245, 1);
+    /* border: 1px solid rgba(0, 4, 255, 0.89);*/
+    border-radius: 3px;
+    display: none;
+}
+
+.issue-box{
+    width: 790px;
+    height: 230px;
+    margin-top: 10px;
+    margin-left: 14px;
+    /*border: 1px solid rgba(0, 204, 255, 0.89);*/
+    border-radius: 3px;
+}
+
+.issue-box>div{
+    float: left;
+    width: 180px;
+    height: 40px;
+    margin-left: 5px;
+}
+
+.issue-box>textarea{
+    width: 100%;
+    height: 180px;
+    resize: none;                     /*禁用拖动*/
+    border-radius: 3px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.issue-button{
+    float: left;
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    font-family: monospace;
+    margin-left: 200px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: #80c269;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.issue-close{
+    float: left;
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    font-family: monospace;
+    margin-left: 200px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: #80c269;
+    color: white;
+    outline: none;
+    cursor: pointer;
+
+}
+/*任务发布板块结束*/
+
+/*好友板块*/
+.newsing{
+    display: none;
+    /*float: right;*/
+    right: 0px;
+    z-index: 2;
+    position: absolute;
+    width: 200px;
+    height: 600px;
+    background-color: #f1f1f1;
+}
+/*好友板块结束*/
+
+/*个人中心板块*/
+.person-center{
+    display: none;
+    position: absolute;
+    /*margin: -600px 10%;*/
+    margin-top: -610px;
+    z-index: 4;
+    width:100%;
+    height: 725px;
+    background-color: #f1f1f1;
+
+}
+
+/*左边部分*/
+.person-center-left{
+    float: left;
+    margin-left: 70px;
+    margin-top: 10px;
+    width:220px;
+    height: 605px;
+    /*border: 1px solid #4cf71b;*/
+}
+
+.p-photo{
+    display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #80c269;
+}
+
+.p-infor{
+    margin-top: 2px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    /*border: 1px solid #000000;*/
+}
+
+.p-left-line{
+    width: 200px;
+    height: 1px;
+    background-color: #80c269;
+    margin: 1px auto;
+}
+
+.p-sign{
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    background-color: #80c269;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.p-task-history{
+    display: block;
+    float: right;
+    margin-top: 10px;
+    margin-right: 30px;
+    width: 70px;
+    height: 70px;
+    font-size:18px;
+    background-color: #80c269;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.person-center-line{
+    float: left;
+    margin-left: 31px;
+    margin-top: 10px;
+    width: 2px;
+    height: 605px;
+    background-color: #ffffff;
+    /*border: 1px solid #f7f7f7;*/
+}
+/*右边部分*/
+.person-center-right{
+    position: absolute;
+    left: 338px;
+    margin-top: 10px;
+    width: 940px;
+    height: 605px;
+    /*border: 1px solid #6ff758;*/
+}
+
+.person-center-close{
+    display: block;
+    width: 70px;
+    height: 10px;
+    margin: 2px auto;
+    cursor: pointer;
+}
+
+.person-center-title{
+    float: left;
+    width: 660px;
+    height: 70px;
+    text-align: left;
+    line-height: 70px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 20px;
+    /*border: 1px solid #56cfff;*/
+}
+
+.edit{
+    float: right;
+    margin-right: 20px;
+    margin-top: 85px;
+    color: darkgrey;
+    cursor: pointer;
+    /*border: 1px solid #56cfff;*/
+}
+
+.edit-picture{
+    display: block;
+    float: right;
+    margin-top: 85px;
+    width: 20px;
+    height: 20px;
+}
+
+.edit-line{
+    clear: both;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 900px;
+    height: 1px;
+    background-color: #b8fe9e;
+}
+
+
+.person-center-name,.person-center-sex,.person-center-academy,.person-center-sign{
+    margin-top: 70px;
+    margin-left: 40px;
+    width: 860px;
+    height: 50px;
+    line-height: 50px;
+    /*background-color: #ff0f00;*/
+
+}
+.person-center-name{
+    margin-top: 30px;
+}
+
+.p-name,.p-sex,.p-academy,.p-autograph{
+    display: block;
+    float: left;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    background-color: #80c269;
+    color: white;
+}
+.p-name-text,.p-sex-text,.p-academy-text,.p-autograph-text{
+    display: block;
+    float: right;
+    width: 720px;
+    height: 50px;
+    /*padding-left: 5px;*/
+    line-height: 50px;
+    background-color: #80c269;
+    font-size: 14px;
+    font-family: myfont;
+    border-left: 30px solid #80c269;
+    color: white;
+}
+
+/*个人中心板块结束*/
+
+/*信息修改板块*/
+.infor-edit{
+    display: none;
+    position: absolute;
+    /*margin: -600px 10%;*/
+    margin-top: -610px;
+    z-index: 4;
+    width:100%;
+    height: 725px;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+/*用户信息框*/
+.infor-edit-table{
+    /*display: none;*/
+    /*position: relative;*/
+    width: 500px;
+    height: 400px;
+    margin: 40px auto;
+    border-radius: 5px;
+    z-index: 5;
+    background-color: white;
+    text-align: center;
+    /*min-width: 160px;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+
+.edit-title{
+    width: 200px;
+    height: 50px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 50px;
+    margin-left: 50px;
+    font-family: myfont;
+    /*border: 1px solid #000000;*/
+}
+.edit-title-line{
+    width: 400px;
+    height: 1px;
+    background-color: #80c269;
+    margin: 1px auto;
+}
+
+.name{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-family: myfont;
+    /*border: 1px solid #ff0e13;*/
+}
+
+.name>div{
+    float: left;
+    margin-top: 0;
+    margin-left: 50px;
+    width: 60px;
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+    /*border: 1px solid #000000;*/
+}
+
+.name>input{
+    float: left;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 1px;
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #000000;
+}
+
+.sex-choice{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-family: myfont;
+    /*border: 1px solid #ff0e13;*/
+}
+
+.sex-choice>div:first-child{
+    float: left;
+    margin-top: 0;
+    margin-left: 50px;
+    width: 60px;
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+    outline: none;
+}
+
+.sex-choice>div:last-child,
+.sex-choice>div:nth-child(2){
+    float: left;
+    margin-top: 0;
+    margin-left: 20px;
+    width: 60px;
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+    /* border: 1px solid #2143ff;*/
+}
+
+.school-class{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-family: myfont;
+   /* border: 1px solid #ff0e13;*/
+}
+
+.school-class>div{
+    float: left;
+    margin-top: 0;
+    margin-left: 50px;
+    width: 60px;
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+}
+
+.school-class>select{
+    float: left;
+    font-size: 17px;
+    margin-top: 5px;
+    margin-left: 1px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+.edit-autograph{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-family: myfont;
+    /*border: 1px solid #ff0e13;*/
+}
+
+.edit-autograph>div{
+    float: left;
+    margin-top: 0;
+    margin-left: 50px;
+    width: 80px;
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+}
+.edit-autograph>input{
+    float: left;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 1px;
+    width: 320px;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #000000;
+}
+
+.infor-button{
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    /*border: 1px solid #ff0e13;*/
+}
+
+.infor-button>button{
+    float: left;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-left: 125px;
+    width: 60px;
+    height: 35px;
+    background-color: #80c269;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*信息修改板块结束*/

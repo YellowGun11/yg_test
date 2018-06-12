@@ -1,0 +1,557 @@
+<strong><!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>LeRun</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/jquery1.10.2jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script>
+            /*任务图标*/
+            $(document).ready(function(){
+                $(".task").click(function(){
+                    $(".tasking").fadeToggle("slow");
+                    $(".tasks").toggle();
+                    $(".ranking1").hide();
+                    $(".ranking2").hide();
+                    $(".ranks").hide();
+                    $(".newss").hide();
+                    $(".newsing").animate({"width":"hide"});
+                    /* $(".tasking").slideToggle("slow");*/
+                });
+            });
+
+            /*更多任务按钮*/
+            $(document).ready(function(){
+                $(".tasking-more").click(function(){
+                    $(".up2").slideDown();
+                    $(".tasking").fadeOut("slow");
+                });
+                $(".close-task").click(function(){
+                    $(".up2").slideUp();
+                });
+            });
+
+            /*排行榜图标*/
+            $(document).ready(function(){
+                $(".rank").click(function(){
+                    $(".ranking1").fadeToggle("slow");
+                    $(".ranking2").hide();
+                    $(".ranks").toggle();
+                    $(".tasking").hide();
+                    $(".tasks").hide();
+                    $(".newss").hide();
+                    $(".newsing").animate({"width":"hide"});
+                    /* $(".tasking").slideToggle("slow");*/
+                });
+            });
+            $(document).ready(function(){
+                $(".exchange1").click(function(){
+                    $(".ranking1").hide();
+                    $(".ranking2").animate({"right":"125px"});
+                    $(".ranking2").show();
+                });
+                $(".exchange2").click(function(){
+                    $(".ranking2").hide();
+                    /*$(".ranking1").animate({"right":"125px"});*/
+                    $(".ranking1").show();
+                });
+
+            });
+
+            /*好友消息图标*/
+            $(document).ready(function(){
+                $(".news").click(function(){
+                    /*$(".newsing").animate({"right":"0px"});*/
+                    $(".newsing").animate({"width":"toggle"});
+                    $(".newss").toggle();
+                    $(".ranks").hide();
+                    $(".tasks").hide();
+                    $(".tasking").hide();
+                    $(".ranking1").hide();
+                    $(".ranking2").hide();
+                });
+            });
+
+
+
+            /*头像触摸*/
+            $(document).ready(function(){
+                $(".user-photo").mouseover(function(){
+                    $(".user-picture-setting").show();
+                });
+            });
+            $(document).ready(function(){
+                $(".user-picture-setting").mouseout(function(){
+                    $(".user-picture-setting").hide();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+                $(".task-user-infor").click(function(){
+                    $(".task-specific").show();
+                });
+                $(".task-specific-close").click(function(){
+                    $(".task-specific").hide();
+                    $(".joiner-chat-box").animate({width:'hide'});
+                });
+            });
+            /*任务详细展开*/
+            $(document).ready(function(){
+                $(".task-user-infor").click(function(){
+                    $(".task-specific").animate({
+                        margin:'6px 200px',
+                        height:'485px',
+                        width:'818px'
+                    });
+                });
+                $(".task-specific-close").click(function(){
+                    $(".task-specific").animate({
+                        margin:'180px 150px',
+                        height:'20px',
+                        width:'580px'
+                    });
+                });
+            });
+            /*发布任务按钮*/
+            $(document).ready(function(){
+                $(".tasking-release").click(function(){
+                    $(".task-issue-box").show("slow");
+                    $(".tasking").fadeOut("slow");
+                });
+                $(".issue-close").click(function(){
+                    $(".task-issue-box").hide("slow");
+                });
+            });
+
+            $(document).ready(function(){
+                $(".seek-button").click(function(){
+                    $(".friends-seek").show("slow");
+                });
+                $(".seek-x").click(function(){
+                    $(".friends-seek").hide("slow");
+                });
+            });
+
+            /*任务中聊天室按钮*/
+            $(document).ready(function(){
+                $(".joiner-chat-button").click(function(){
+                    $(".joiner-chat-box").animate({width:'show'});
+                });
+                $(".part1-close").click(function(){
+                    $(".joiner-chat-box").animate({width:'hide'});
+                });
+            });
+            /*个人中心*/
+            $(document).ready(function(){
+                $(".user-infor-list").click(function(){
+                    $(".person-center").fadeIn();
+                });
+                $(".person-center-close").click(function(){
+                    $(".person-center").slideUp();
+                });
+                $(".edit").click(function(){
+                    $(".infor-edit").fadeIn();
+                });
+                $(".user-infor-close").click(function(){
+                    $(".infor-edit").fadeOut();
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+    <!--导航栏-->
+    <div class="header">
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        <ul>
+            <li><a class="rank"><img src="img/rank2.png" class="ranks"></a></li>
+            <li><a class="task"><img src="img/task2.png" class="tasks"></a></li>
+            <li><a class="news"><img src="img/news2.png" class="newss"></a></li>
+            <div class="user-photo">
+                <img src="img/user.jpg" alt="">
+                <div class="user-picture-setting">
+                    <img src="img/user.jpg" style="">
+                    <div class="user-data">
+                        <span class="user-name">罗伊斯</span>
+                        <span class="user-score">积分:</span><span class="score-number">11</span>
+                    </div>
+                    <a href="#" class="user-infor-list">个人中心</a>
+                    <a href="#">积分说明</a>
+                    <a href="#">用户切换</a>
+                    <a href="#">安全退出</a>
+                </div>
+            </div>
+            <li class="move"> </li>
+        </ul>
+    </div>
+    <!--导航栏结束-->
+
+    <!--任务板块-->
+    <div class="tasking">
+        <div class="tasking-title">任务</div>
+        <div class="line"></div>
+        <div class="tasking-content1">
+            <span class="text1">来！一起跑步吧！</span>
+            <span class="count1">0</span><span class="mark">/</span><span class="count2">10</span>
+            <img class="join-button" src="img/joinButton.png">
+        </div>
+        <div class="tasking-content1">
+            <span class="text1">有没有一起减肥的小姐姐。。。</span>
+            <span class="count1">0</span><span class="mark">/</span><span class="count2">2</span>
+            <img class="join-button" src="img/joinButton.png">
+        </div>
+        <div class="tasking-content1">
+            <span class="text1">兄弟一起减肥的有没有？</span>
+            <span class="count1">0</span><span class="mark">/</span><span class="count2">5</span>
+            <img class="join-button" src="img/joinButton.png">
+        </div>
+        <div class="tasking-content1">
+            <span class="text1">短跑练习一起！</span>
+            <span class="count1">0</span><span class="mark">/</span><span class="count2">10</span>
+            <img class="join-button" src="img/joinButton.png">
+        </div>
+        <input type="button" class="tasking-release" value="发布任务">
+        <span class="tasking-more">更多任务</span>
+    </div>
+    <!--任务板块结束-->
+
+    <!--排行榜板块-->
+    <div class="ranking1">
+        <div class="ranking1-title">好友排行榜<img class="exchange1" src="img/exchange.png"></div>
+        <div class="line"></div>
+        <div class="ranking1-box1">
+            <div class="ranking1-box2">
+                <div class="ranking1-box3">
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name top-name">Reus</span>
+                        <span class="ranking1-score top-score">999</span>
+                        <img  class="ranking1-cup" src="img/cup.png">
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">Yellow</span>
+                        <span class="ranking1-score">900</span>
+                        <span class="ranking1-place top-two">2</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">Together</span>
+                        <span class="ranking1-score">800</span>
+                        <span class="ranking1-place top-three">3</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">BVB</span>
+                        <span class="ranking1-score">700</span>
+                        <span class="ranking1-place">4</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">C罗</span>
+                        <span class="ranking1-score">600</span>
+                        <span class="ranking1-place">5</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">梅西</span>
+                        <span class="ranking1-score">550</span>
+                        <span class="ranking1-place">6</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">厄齐尔</span>
+                        <span class="ranking1-score">500</span>
+                        <span class="ranking1-place">7</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking1-name">皮什切克</span>
+                        <span class="ranking1-score">450</span>
+                        <span class="ranking1-place">8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ranking2">
+        <div class="ranking2-title"><img  class="exchange2" src="img/exchange2.png">学院排行榜</div>
+        <div class="line"></div>
+        <div class="ranking1-box1">
+            <div class="ranking1-box2">
+                <div class="ranking1-box3">
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking2-name top-name">英雄学院</span>
+                        <span class="ranking2-score top-score">999</span>
+                        <img  class="ranking1-cup" src="img/cup.png">
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking2-name">计算机学院</span>
+                        <span class="ranking2-score">900</span>
+                        <span class="ranking1-place top-two">2</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking2-name">体育学院</span>
+                        <span class="ranking2-score">800</span>
+                        <span class="ranking1-place top-three">3</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking2-name">机械学院</span>
+                        <span class="ranking2-score">700</span>
+                        <span class="ranking1-place">4</span>
+                    </div>
+                    <div class="ranking1-content1">
+                        <img class="number one" src="">
+                        <span class="ranking2-name">人文学院</span>
+                        <span class="ranking2-score">600</span>
+                        <span class="ranking1-place">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--排行榜板块结束-->
+
+    <!--更多任务板块-->
+    <div class="up2">
+        <div class="up2-bg">
+            <div class="task-box">
+                <div class="task-each-box">
+                    <div class="task-user-picture" >
+                        <img src="img/system-photo.png" style="border-radius: 50%;width: 35px;height: 35px">
+                    </div>
+                    <div class="task-user-infor">
+                        <span class="texts1">有没有一起减肥的小姐姐。。。</span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">5</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1">来！一起跑步吧！</span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">10</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1">有没有一起减肥的小姐姐。。。</span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">2</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1">兄弟一起减肥的有没有？</span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">5</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1">短跑练习一起！</span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">10</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1"></span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">0</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1"></span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">0</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1"></span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">0</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+                <div>
+                    <div class="task-user-picture" ></div>
+                    <div class="task-user-infor">
+                        <span class="texts1"></span>
+                        <span class="counts1">0</span><span class="marks">/</span><span class="counts2">0</span>
+                    </div>
+                    <img src="img/joinButton.png" class="join">
+                </div>
+            </div>
+        </div>
+        <img class="close-task" src="img/closetask.png">
+    </div>
+
+    <!--详细任务框-->
+    <div class="task-specific">
+        <div style="width: 100%;height: 20px">
+            <div class="task-specific-close">x</div>
+        </div>
+        <div class="task-specific-box"></div>
+        <div class="task-specific-chat">
+            <div class="task-user-join" ></div>
+            <div class="task-user-join" ></div>
+            <div class="task-user-join" ></div>
+            <div class="task-user-join" ></div>
+            <div class="joiner-chat">
+                <button class="joiner-join-button">加入</button>
+                <button class="joiner-chat-button">聊天室</button>
+            </div>
+        </div>
+        <div class="task-joiner-shape"></div>
+        <div class="joiner-chat-box">
+            <div class="part1">
+                <div class="part1-close">x</div>
+            </div>
+            <div class="part2">
+                <input type="text" class="part2-input"/>
+                <button class="part2-send-button">发送</button>
+            </div>
+        </div>
+    </div>
+    <!--更多任务板块结束-->
+
+    <!--发布任务板块-->
+    <div class="task-issue-box">
+        <div class="issue-box">
+            <div>
+                <input name="pattern" type="radio" value="1"/>情侣模式
+            </div>
+            <div>
+                <input name="pattern" type="radio" value="2"/>单身狗模式
+            </div>
+            <div>
+                <input name="pattern" type="radio" value="3"/>五人模式狗模式
+            </div>
+            <div>
+                <input name="pattern" type="radio" value="4"/>自由模式
+            </div>
+                    <textarea>
+
+                    </textarea>
+        </div>
+        <button class="issue-button">发布</button>
+        <button class="issue-close">关闭</button>
+    </div>
+    <!--发布任务板块结束-->
+
+    <!--好友板块-->
+    <div class="newsing">
+
+    </div>
+    <!--好友板块结束-->
+
+    <!--标语-->
+    <div class="lead">
+        <img src="img/lead.png">
+    </div>
+    <!--标语结束-->
+
+    <!--个人中心板块-->
+    <div class="person-center">
+        <div class="person-center-left">
+            <img class="p-photo" src="img/user.jpg">
+            <div class="p-infor">
+                <span class="p-socre">积分:</span><span class="p-score-value">11</span>
+            </div>
+            <div class="p-left-line"></div>
+            <button class="p-sign">签到</button>
+            <button class="p-task-history">任务记录</button>
+        </div>
+        <div class="person-center-line"></div>
+        <div class="person-center-right">
+            <img  class="person-center-close" src="img/personalcolse.png">
+            <div class="person-center-title">个人信息</div>
+            <span class="edit">编辑</span>
+            <img class="edit-picture" src="img/edit.png">
+            <div class="edit-line"></div>
+            <div class="person-center-name">
+                <span class="p-name">昵称:</span><span class="p-name-text">罗伊斯</span>
+            </div>
+            <div class="person-center-sex">
+                <span class="p-sex">性别:</span><span class="p-sex-text">男</span>
+            </div>
+            <div class="person-center-academy">
+                <span class="p-academy">学院:</span><span class="p-academy-text">计算机学院</span>
+            </div>
+            <div class="person-center-sign">
+                <span class="p-autograph">个性签名:</span><span class="p-autograph-text">一座城一个人</span>
+            </div>
+        </div>
+    </div>
+    <!--个人中心板块结束-->
+    <!--信息修改板块-->
+    <div class="infor-edit">
+        <div class="infor-edit-table">
+            <div class="edit-title">个人信息编辑</div>
+            <div class="edit-title-line"></div>
+            <div class="name">
+                <div>
+                    <span>昵称</span>
+                </div>
+                <input type="text" id="nickname" maxlength="7">
+            </div>
+            <div class="sex-choice">
+                <div>
+                    <span>性别</span>
+                </div>
+                <div>
+                    <input name="sex" type="radio" value="男"/>男
+                </div>
+                <div>
+                    <input name="sex" type="radio" value="女"/>女
+                </div>
+            </div>
+            <div class="school-class">
+                <div>
+                    <span>学院</span>
+                </div>
+                <select id="s1">
+                    <option value="jsj">计算机学院</option>
+                    <option value="rw">人文学院</option>
+                    <option value="wy">外语学院</option>
+                    <option value="jx">机械学院</option>
+                    <option value="ty">体育学院</option>
+                    <option value="tmgc">土木工程学院</option>
+                    <option value="yy">音乐学院</option>
+                    <option value="ms">美术学院</option>
+                </select>
+            </div>
+            <div class="edit-autograph">
+                <div>
+                    <span>个性签名</span>
+                </div>
+                <input type="text" id="autograph-text" maxlength="20">
+            </div>
+            <div class="infor-button">
+                <button onclick="userSet()">保存</button>
+                <button class="user-infor-close">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!--信息修改板块结束-->
+    </body>
+    </html>
+</strong>  
